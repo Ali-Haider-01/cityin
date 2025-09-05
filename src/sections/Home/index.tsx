@@ -5,12 +5,13 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function Home() {
   return (
+    <>
     <Box
       sx={{
         backgroundImage:
@@ -18,7 +19,6 @@ export default function Home() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
-       // height: "400px",
         mt: -5,
       }}
     >
@@ -26,10 +26,10 @@ export default function Home() {
         display={"flex"}
         alignItems={"start"}
         justifyContent={"center"}
-        flexWrap={'wrap'}
+        flexWrap={"wrap"}
         flexDirection={"column"}
         pt={15}
-        pl={{xs:5,sm:10,md:15}}
+        pl={{ xs: 5, sm: 10, md: 15 }}
       >
         <Typography variant="h2" color="white">
           Let's book your trip!
@@ -42,43 +42,83 @@ export default function Home() {
         sx={{
           bgcolor: "rgba(7, 48, 61, 0.8)",
           display: "flex",
-          flexWrap:'wrap',
+          flexWrap: "wrap",
           alignItems: "center",
           justifyContent: "center",
           gap: 2,
-          mt:10.6,
-          p:1.5,
+          mt: 10.6,
+          p: 1.5,
         }}
       >
-        <TextField name="destination" placeholder="Enter a destination" size="medium" sx={{bgcolor:'white',borderRadius:1}} InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <LocationOnIcon color="action" />
-          </InputAdornment>
-        ),
-      }}/>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DatePicker"]}>
-        <DatePicker
-          slotProps={{
-            textField: {
-              placeholder: "Select a date", 
-              size: "medium",
-              sx: { bgcolor: "white", borderRadius: 1, mt: 0 },
-            },
+        <TextField
+          name="destination"
+          placeholder="Enter a destination"
+          size="medium"
+          sx={{ bgcolor: "white", borderRadius: 1 }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LocationOnIcon color="action" />
+              </InputAdornment>
+            ),
           }}
         />
-      </DemoContainer>
-    </LocalizationProvider>
-        <TextField name="room" placeholder="1 Room, 2 Adults, 0 Child" size="medium" sx={{bgcolor:'white',borderRadius:1}} InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <Diversity3Icon color="action" />
-          </InputAdornment>
-        ),
-      }}/>
-      <Button variant="contained" sx={{bgcolor:' color="#1674dfff"'}}>Search Hotels</Button>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={["DatePicker"]}>
+            <DatePicker
+              slotProps={{
+                textField: {
+                  placeholder: "Select a date",
+                  size: "medium",
+                  sx: { bgcolor: "white", borderRadius: 1, mt: 0 },
+                },
+              }}
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+        <TextField
+          name="room"
+          placeholder="1 Room, 2 Adults, 0 Child"
+          size="medium"
+          sx={{ bgcolor: "white", borderRadius: 1 }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Diversity3Icon color="action" />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Button variant="contained" sx={{ bgcolor:"#1674dfff",color:'white' }}>
+          Search Hotels
+        </Button>
       </Box>
     </Box>
+    <Box my={4} sx={{
+    px: { xs: 1, sm: 2, md: 15 }, 
+  }}>
+        <Typography variant="h4" color="#4a4a4bff"marginBottom={2}>Special deals for you</Typography>
+<Box
+sx={{
+     backgroundImage:
+          'url("https://cityin.net/uploads/travel-images/settings-files/afa21d355a621591cc4da501bb113a9f.webp")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:2,
+        gap:3,
+        py:10,
+}} 
+>
+    <Typography variant="h2" color="white">Unwind at a cosy retreat abroad</Typography>
+       <Typography variant="body1" color="white">Avail our deals a save on your stay</Typography>
+<Button variant="contained" sx={{bgcolor:'#ce5d59ff', color:'white'}}>Learn More</Button>
+</Box>
+    </Box>
+    </>
   );
 }

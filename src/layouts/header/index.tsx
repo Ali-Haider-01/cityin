@@ -226,7 +226,7 @@ export const Header = () => {
                   edge="start"
                   onClick={handleDrawerToggle}
                   sx={{
-                    color: "#2F2F2F",
+                    color: "white",
                     p: 1,
                   }}
                 >
